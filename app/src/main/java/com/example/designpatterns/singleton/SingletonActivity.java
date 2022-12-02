@@ -28,6 +28,13 @@ public class SingletonActivity extends AppCompatActivity implements View.OnClick
         activityMainBinding.buttonTop.setOnClickListener(this);
         activityMainBinding.buttonMid.setOnClickListener(this);
         activityMainBinding.buttonBottom.setOnClickListener(this);
+//        test singleton,单例模式,保障唯一实例
+        Singleton singleton1 = Singleton.getInstance();
+        Singleton singleton2 = Singleton.getInstance();
+        if (singleton1 == singleton2)
+            Log.i(TAG,"singleton is the same!");
+        else
+            Log.i(TAG,"singleton is the different!");
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -35,15 +42,15 @@ public class SingletonActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.button_top:
-                Log.i(TAG,"build 111111111111");
+                Log.i(TAG,"click btn_top");
                 openToolbox();
                 break;
             case R.id.button_mid:
-                Log.i(TAG,"22222222222");
+                Log.i(TAG,"click btn_mid");
                 openToolbox();
                 break;
             case R.id.button_bottom:
-                Log.i(TAG,"build 3333333333");
+                Log.i(TAG,"click btn_bottom");
                 openToolbox();
                 break;
             default:
@@ -53,7 +60,7 @@ public class SingletonActivity extends AppCompatActivity implements View.OnClick
 
     @SuppressLint("SetTextI18n")
     private void openToolbox(){
-        Log.i(TAG,"iiiiiiiiiiiii");
+//        Log.i(TAG,"iiiiiiiiiiiii");
         if (null == toolbox ){
             toolbox = new Button(this);
             toolbox.setText("toolBox");
